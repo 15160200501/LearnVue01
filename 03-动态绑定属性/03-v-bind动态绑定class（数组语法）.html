@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--  [active, line]不加引号就是变量，加引号就是字符串  -->
+    <h2 class="title" :class="[active, line]">{{message}}</h2>
+    <h2 class="title" :class="getClass()">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: '你好',
+            active: 'aaaaa',
+            line: 'bbbbb'
+        },
+        methods: {
+            getClass : function () {
+                //在一个对象里面要用到data数据，一定要加上this
+                return [this.active, this.line]
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
