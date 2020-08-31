@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{message}} ,niha</h2>
+<!--    v-text不够灵活，会把后面的覆盖掉，一般使用上面的胡须表达式即可-->
+    <h2 v-text="message">niha</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+
+<script>
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: '你好'
+        }
+    })
+</script>
+
+</body>
+</html>
