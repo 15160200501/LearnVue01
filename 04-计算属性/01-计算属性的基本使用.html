@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <h2>{{fullName}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: '你好',
+            firstName: 'ni',
+            lastName: 'hao'
+        },
+
+        //computed是计算属性，在上面引用不需要加fullName()括号
+        //专门用于计算属性用的，也可以写在methods方法里，只不过需要加小括号,但是写在computed里面有缓存结果，
+        //不需要重新再计算
+        //还有不要起动词的名字
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
