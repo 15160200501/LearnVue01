@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    1、  .stop修饰符的使用-->
+    <div @click="divClick">
+        aaaaa
+        <button @click.stop="btnClick">按钮</button>
+    </div>
+
+<!--    2\   .prevent修饰符的使用-->
+<!--    只提交数据，不提交form表单-->
+    <br>
+    <form action="baidu">
+        <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+<!--    3、监听某个键盘的键帽   加个enter是回车的时候调用方法 -->
+    <input type="text" @Keyup.enter="keyup">
+
+<!--    4\   v-once只调用一次回调-->
+    <button @click.once="btn2Click">按钮2</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: '你好',
+        },
+        methods: {
+            btnClick() {
+                console.log("btnClick")
+            },
+            divClick() {
+                console.log("divClick")
+            },
+            submitClick() {
+                console.log('submitClick')
+            },
+            keyup() {
+                console.log('keyup')
+            },
+            btn2Click() {
+                console.log("btn2Click")
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
