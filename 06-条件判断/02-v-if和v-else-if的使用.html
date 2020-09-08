@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    h2\h3\h4只是显示大小不一样-->
+    <h2 v-if="score>=90">优秀</h2>
+    <h3 v-else-if="score>=80">良好</h3>
+    <h4 v-else-if="score>=60">及格</h4>
+    <h5 v-else>不及格</h5>
+
+    <h2>{{result}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            score: '50',
+        },
+        computed: {
+            result() {
+                let showMessage = '';
+                if (this.score >= 90) {
+                    showMessage = '优秀'
+                } else if (this.score >= 80) {
+                    showMessage = '良好'
+                } else {
+                    showMessage ='不及格'
+                }
+                return showMessage
+            }
+        }
+    })
+</script>
+
+</body>
+</html>
