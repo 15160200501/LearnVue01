@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--    修饰符：lazy-->
+<!--    加上lazy的话，在输入框的时候，不会实时更新，敲入回车或者失去焦点会更新-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+
+<!--    修饰符：number   作用：将输入框规定为数字类型-->
+    <input type="number" v-model.number="age">
+    <h2>{{age}}------{{typeof age}}</h2>
+
+<!--    将输入框中的两边空格进行去掉，中间的空格去不了-->
+    <input type="text" v-model.trim="name">
+    <h2>您输入的名字：{{name}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: '你好',
+            age: '',
+            name: ''
+        },
+    })
+</script>
+
+</body>
+</html>
