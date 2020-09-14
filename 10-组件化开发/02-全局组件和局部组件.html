@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <cpc></cpc>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    //1、创建组件构造器对象
+    const cpcC = Vue.extend({
+        //使用漂符，写html代码可以不用 “+\n” 进行换行
+        template: `
+            <div>
+                <h2>我是标题</h2>
+                <p>我是内容，哈哈哈哈</p>
+                <p>我是内容，呵呵呵呵</p>
+            </div>`
+    })
+
+    //2、注册组件
+    Vue.component('cpc', cpcC)
+
+    // let(变量)   const(常量)
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data: { //定义数据
+            message: '你好',
+        },
+    })
+</script>
+
+</body>
+</html>
